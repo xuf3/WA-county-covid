@@ -238,7 +238,12 @@ Promise.all([
       data: {
         x: "date",
         y: "Number",
-        columns: [],
+        columns: [
+          calPlace('King County')['c'],
+          calPlace('King County')['h'],
+          calPlace('King County')['d'],
+          calPlace('King County')['date']
+        ],
         type: 'line',
         axes: {
           confirmed: 'y'
