@@ -39,8 +39,11 @@ var d3locale = d3.formatDefaultLocale({
 Promise.all([
   d3.csv("/assets/covidCasesTrend.csv"),//datasets[0]
   d3.csv("/assets/covidAge.csv"), //datasets[1]
+  d3.csv("assets/county-pop.csv"),
   //load your data here through d3
 ]).then(function(datasets) {
+
+  var countyPop = datasets[2];
 
   //highlight the county whne the mouse hover on
   function highlightFeature(e){
@@ -204,6 +207,15 @@ Promise.all([
     $("#cvd-case").text(count[0]);
     $("#cvd-death").text(count[1]);
     $("#cvd-hospital").text(count[2]);
+    let pop;
+    countyPop.forEach(function(c) {
+      let current = c['county'];
+      if (current.localeCompare(name) == 0) {
+        pop = c['pop'];
+      }
+    });
+    let morbidity = sortedCounty[name] / pop * 100;
+    $('#cvd-pop').text(morbidity.toFixed(2) + "%");
     //$("#curLayer").text(e.target.textContent);
   }
 
