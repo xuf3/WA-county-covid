@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>covid-workers dashboard</title>
+
+  <!-- external CSS & js -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/c3.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/leaflet.css" />
+  <link href="css/main.css" rel="stylesheet">
+  <script src="js/d3.js" charset="utf-8"></script>
+  <script src="js/c3.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/topojson.v1.min.js"></script>
+  <script src="js/leaflet.ajax.js"></script>
+  <script src="js/chroma.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="county-covid.html">WA State Covid Dashboard</a>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="ct-grid-container grid-container">
+    <div class="grid-box ct-grid-item-3">
+      <div class="risk-factors">
+      </div>
+      <div class="cvd-grid-container">
+          <div class="cvd-grid-item-1 fac-box">
+            <div class="cvd-card-title">
+              <span>Cases</span>
+              <span>Deaths</span>
+            </div>
+            <hr>
+            <div class="cvd-card-num">
+              <span id = "cvd-case" style = "color: #ffa500">1873</span>
+              <span id = "cvd-death" style = "color: #dc3545">173</span>
+            </div>
+          </div>
+          <div class="cvd-grid-item-2 fac-box">
+            <div class="cvd-card-title">
+              <span >Hospitalization</span>
+              <span>Case/Population</span>
+            </div>
+            <hr>
+            <div class="cvd-card-num">
+              <span id = "cvd-hospital" style = "color: #28a745">1873</span>
+              <span id = "cvd-pop" style = "color: #64acde">3.07</span>
+            </div>
+          </div>
+          <div class="cvd-grid-item-3 fac-box">Covid-19 Case Age Distribution
+            <div id="pie-chart"></div>
+          </div>
+          <div class="cvd-grid-item-5 fac-box" >Covid-19 cases line chart
+              <div id="line-chart"></div>
+          </div>
+      </div>
+    </div>
+    <div class="grid-box ct-grid-item-4" id="map-container">
+      <script src="js/map-cvd.js"></script>
+    </div>
+    <div class="grid-box ct-grid-item-5" id = "county-name">King County</div>
+    <div class="grid-box ct-grid-item-6">
+      <!-- <span id = 'about'>
+        About this Dashboard
+        <p> This dashboard diplayed the covid-19 cases information for each counties in Washington State.
+          The data is retrived from Washington State Department of Health. Besides the basic indicators like cases, death, hospitalizations,
+          I also combined the dataset with the population of the county to calculate the mobidity rate for each county as well as a age distribution
+          bar chart. Feel free to check different counties's situation and find the one you live in also various patterns of the covid.
+        </p>
+      </span> -->
+      <span>
+        Top 10 counties confirmed
+        <ol id ='ct-list'>
+        </ol>
+      </span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
