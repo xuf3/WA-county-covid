@@ -37,8 +37,8 @@ var d3locale = d3.formatDefaultLocale({
 
 
 Promise.all([
-  d3.csv("/assets/covidCasesTrend.csv"),//datasets[0]
-  d3.csv("/assets/covidAge.csv"), //datasets[1]
+  d3.csv("assets/covidCasesTrend.csv"),//datasets[0]
+  d3.csv("assets/covidAge.csv"), //datasets[1]
   d3.csv("assets/county-pop.csv"),
   //load your data here through d3
 ]).then(function(datasets) {
